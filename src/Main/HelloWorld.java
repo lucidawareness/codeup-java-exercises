@@ -1,4 +1,4 @@
-package src;
+package Main;
 
 public class HelloWorld {
     public static void main(String[] args) {
