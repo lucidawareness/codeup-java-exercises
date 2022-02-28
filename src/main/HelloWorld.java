@@ -22,7 +22,7 @@ public class HelloWorld {
 //        Object o = theNumberThree;
 //        int three = (int) o;
         x = 4;
-        x+= 5;
+        x += 5;
 
         int y = 4;
         y *= x;
