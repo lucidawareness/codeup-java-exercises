@@ -9,6 +9,8 @@ public class ConsoleExercises {
 
         Scanner scanner = new Scanner(System.in);
 
+        scanner.useDelimiter("\n");
+
         System.out.print("Enter an Integer: ");
         int userInput = scanner.nextInt();
 
@@ -38,11 +40,19 @@ public class ConsoleExercises {
 
         System.out.println("Calculate a rooms perimeter and area!");
         System.out.println("What is the width of your room?");
-        int roomWidth = Integer.parseInt(scanner.nextLine());
+        float roomWidth = scanner.nextFloat();
+
         System.out.println("What is the length of your room?");
-        int roomLength = Integer.parseInt(scanner.nextLine());
-        int roomArea = roomLength * roomWidth;
-        int roomPerimeter = roomLength * 2 + roomWidth * 2;
-        System.out.printf("Your room has an Area of %s and a perimeter of %S.", roomArea, roomPerimeter);
+        float roomLength = scanner.nextFloat();
+
+        float roomArea = roomLength * roomWidth;
+        float roomPerimeter = roomLength * 2 + roomWidth * 2;
+        System.out.printf("Your room has an Area of %s and a perimeter of %S.%n", roomArea, roomPerimeter);
+
+        System.out.println("Now lets calculate the volume of your room");
+        System.out.println("What is the height of your room?");
+        float roomHeight = scanner.nextFloat();
+        float roomVolume = roomArea * roomHeight;
+        System.out.printf("The volume of your room is %s.%n", roomVolume);
     }
 }
