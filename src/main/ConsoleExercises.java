@@ -54,5 +54,7 @@ public class ConsoleExercises {
         float roomHeight = scanner.nextFloat();
         float roomVolume = roomArea * roomHeight;
         System.out.printf("The volume of your room is %.3f.%n", roomVolume);
+
+        scanner.close();
     }
 }
