@@ -35,5 +35,14 @@ public class ConsoleExercises {
         String userInputSentence = scanner.nextLine();
 
         System.out.println(userInputSentence);
+
+        System.out.println("Calculate a rooms perimeter and area!");
+        System.out.println("What is the width of your room?");
+        int roomWidth = Integer.parseInt(scanner.nextLine());
+        System.out.println("What is the length of your room?");
+        int roomLength = Integer.parseInt(scanner.nextLine());
+        int roomArea = roomLength * roomWidth;
+        int roomPerimeter = roomLength * 2 + roomWidth * 2;
+        System.out.printf("Your room has an Area of %s and a perimeter of %S.", roomArea, roomPerimeter);
     }
 }
