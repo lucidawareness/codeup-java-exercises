@@ -47,12 +47,12 @@ public class ConsoleExercises {
 
         float roomArea = roomLength * roomWidth;
         float roomPerimeter = roomLength * 2 + roomWidth * 2;
-        System.out.printf("Your room has an Area of %s and a perimeter of %S.%n", roomArea, roomPerimeter);
+        System.out.printf("Your room has an Area of %f and a perimeter of %f.%n", roomArea, roomPerimeter);
 
         System.out.println("Now lets calculate the volume of your room");
         System.out.println("What is the height of your room?");
         float roomHeight = scanner.nextFloat();
         float roomVolume = roomArea * roomHeight;
-        System.out.printf("The volume of your room is %s.%n", roomVolume);
+        System.out.printf("The volume of your room is %.3f.%n", roomVolume);
     }
 }
