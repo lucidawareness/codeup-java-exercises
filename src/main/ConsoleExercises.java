@@ -28,13 +28,12 @@ public class ConsoleExercises {
         String thirdWord = scanner.next();
 
         System.out.printf("Your entries are: 1st %s, 2nd %s, 3rd %s.%n", firstWord, secondWord, thirdWord);
+        scanner.nextLine();
 
 //      Not allowing input for line 34
         System.out.println("Now you will enter a sentence");
         String userInputSentence = scanner.nextLine();
 
         System.out.println(userInputSentence);
-
-        System.out.println("");
     }
 }
