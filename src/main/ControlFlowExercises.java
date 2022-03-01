@@ -66,20 +66,28 @@ public class ControlFlowExercises {
 
 //      Table of powers
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What number would you like the table to go to?");
-        int userIntInput = scanner.nextInt();
+        boolean proceed = true;
+        while (proceed) {
+            System.out.println("What number would you like the table to go to?");
+            int userIntInput = scanner.nextInt();
 
-        System.out.print("Here is your table! \n\nNumber | Squared | Cubed\n------ | ------- | -----\n");
-        for (int l = 1; l <= userIntInput; l++) {
-            int squared = l * l;
-            int cubed = l * l * l;
-            System.out.printf("%-7d| %-8d| %-6d\n", l, squared, cubed);
+            System.out.print("Here is your table! \n\nNumber | Squared | Cubed\n------ | ------- | -----\n");
+            for (int l = 1; l <= userIntInput; l++) {
+                int squared = l * l;
+                int cubed = l * l * l;
+                System.out.printf("%-7d| %-8d| %-6d\n", l, squared, cubed);
+            }
+            System.out.println("Would you like to proceed? (y/n)");
+            String userInput = scanner.next();
+            if (!userInput.equalsIgnoreCase("y")) {
+                proceed = false;
+            }
         }
 
 //      Convert int grade to letter grades
         System.out.println("What is your grade (0-100)?");
         int gradeInt = scanner.nextInt();
-        if (gradeInt <= 59 && gradeInt >=0) {
+        if (gradeInt <= 59 && gradeInt >= 0) {
             System.out.println("Your grade is F");
         } else if (gradeInt <= 66) {
             if (gradeInt > 63) {
@@ -104,6 +112,9 @@ public class ControlFlowExercises {
         } else {
             System.out.println("Please input a number between 0-100");
         }
+
+        scanner.close();
+        System.out.println("Goodbye");
 
     }
 }
