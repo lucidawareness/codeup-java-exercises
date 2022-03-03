@@ -33,6 +33,14 @@ public class MethodsExercises {
     }
 
     private static void divide(int i, int i1) {
+        if (i1 == 0 || i == 0){
+            System.out.println("You cannot divide by zero!\nTry again");
+            System.out.println("Enter first number");
+            int userInput1 = scanner.nextInt();
+            System.out.println("Enter second number");
+            int userInput2 = scanner.nextInt();
+            divide(userInput1, userInput2);
+        }
         System.out.println(i / i1);
     }
 
@@ -55,7 +63,7 @@ public class MethodsExercises {
             System.out.println("Good job!");
             return userNumber;
         } else {
-            System.out.println("Try again");
+            System.out.println("Input not between 1 and 10\nTry again");
             return getInteger(min, max);
         }
     }
@@ -63,7 +71,7 @@ public class MethodsExercises {
     public static void factorial() {
         boolean proceed = true;
         do {
-            System.out.println("Please enter a number 1 and 20: ");
+            System.out.println("Please enter a number 1 and 20 to find it's factorial number");
             int userNum = scanner.nextInt();
             if (userNum <= 20 && userNum >= 1) {
                 long factorial = 1;
