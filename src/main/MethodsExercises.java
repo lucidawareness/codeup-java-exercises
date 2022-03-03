@@ -14,6 +14,7 @@ public class MethodsExercises {
         modulus(6, 2);
         multiplicationBonus(5, 10);
         getInteger(1, 10);
+        diceRoll();
 
     }
 
@@ -55,5 +56,30 @@ public class MethodsExercises {
             System.out.println("Try again");
             return getInteger(min, max);
         }
+    }
+
+    public static void diceRoll() {
+        boolean proceed = true;
+        do {
+            System.out.println("How many sides do you want your pair of dices to have?");
+            int userDiceInput = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Press enter/return to roll your pair of dice");
+            scanner.nextLine();
+            int diceRoll1 = generateRandomNum(userDiceInput);
+            int diceRoll2 = generateRandomNum(userDiceInput);
+            System.out.printf("Roll 1: %d%n" ,diceRoll1);
+            System.out.printf("Roll 2: %d%n" ,diceRoll2);
+            System.out.println("Would you like to roll again? (y/n)");
+            String userAnswer = scanner.nextLine();
+            if (!userAnswer.equalsIgnoreCase("y")) {
+                proceed = false;
+            }
+        } while (proceed);
+        System.out.println("Dice game: Goodbye!");
+    }
+
+    public static int generateRandomNum(int num) {
+        return (int) (Math.random() * num) + 1;
     }
 }
