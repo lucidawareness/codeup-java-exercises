@@ -1,5 +1,6 @@
 package main;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class MethodsExercises {
@@ -14,6 +15,7 @@ public class MethodsExercises {
         modulus(6, 2);
         multiplicationBonus(5, 10);
         getInteger(1, 10);
+        factorial();
         diceRoll();
 
     }
@@ -58,6 +60,31 @@ public class MethodsExercises {
         }
     }
 
+    public static void factorial() {
+        boolean proceed = true;
+        do {
+            System.out.println("Please enter a number 1 and 20: ");
+            int userNum = scanner.nextInt();
+            if (userNum <= 20 && userNum >= 1) {
+                long factorial = 1;
+                for (int i = 1; i <= userNum; i++) {
+                    factorial = factorial * i;
+                }
+                System.out.printf("The factorial of %d! is %,d%n",userNum, factorial);
+            } else {
+                System.out.println("Please input a number between 1 and 10");
+            }
+
+            scanner.nextLine();
+            System.out.println("Would you like to try a different number? (y/n)");
+            String userAnswer = scanner.nextLine();
+            if (!userAnswer.equalsIgnoreCase("y")) {
+                proceed = false;
+                System.out.println("Factorial calculator: Goodbye!");
+            }
+        } while (proceed);
+    }
+
     public static void diceRoll() {
         boolean proceed = true;
         do {
@@ -68,8 +95,8 @@ public class MethodsExercises {
             scanner.nextLine();
             int diceRoll1 = generateRandomNum(userDiceInput);
             int diceRoll2 = generateRandomNum(userDiceInput);
-            System.out.printf("Roll 1: %d%n" ,diceRoll1);
-            System.out.printf("Roll 2: %d%n" ,diceRoll2);
+            System.out.printf("Roll 1: %d%n", diceRoll1);
+            System.out.printf("Roll 2: %d%n", diceRoll2);
             System.out.println("Would you like to roll again? (y/n)");
             String userAnswer = scanner.nextLine();
             if (!userAnswer.equalsIgnoreCase("y")) {
