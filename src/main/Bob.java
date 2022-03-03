@@ -2,7 +2,7 @@ package main;
 
 import java.util.Scanner;
 
-class bob {
+public class Bob {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Boolean proceed = true;
