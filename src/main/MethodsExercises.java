@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class MethodsExercises {
-    static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -80,7 +80,7 @@ public class MethodsExercises {
                 }
                 System.out.printf("The factorial of %d! is %,d%n",userNum, factorial);
             } else {
-                System.out.println("Please input a number between 1 and 10");
+                System.out.println("Please input a number between 1 and 20");
             }
 
             scanner.nextLine();
