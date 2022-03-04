@@ -19,7 +19,7 @@ public class HighLow {
             int userGuess = scanner.nextInt();
             if (userGuess == randomNum) {
                 correctGuess = true;
-                System.out.printf("GOOD GUESS!\nYou have guesses correctly!\n The correct number was: %d \n", randomNum);
+                System.out.printf("GOOD GUESS!\nYou have guessed correctly!\n The correct number was: %d \n", randomNum);
             } else {
                 userGuessesLeft -= 1;
                 userAttempts += 1;
