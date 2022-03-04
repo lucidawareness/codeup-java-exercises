@@ -12,7 +12,7 @@ public class Input {
 
     public static boolean yesNo(String prompt) {
         System.out.println(prompt);
-        String userInput = scanner.nextLine();
+        String userInput = scanner.next();
         return userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes");
     }
 
