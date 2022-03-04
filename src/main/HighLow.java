@@ -3,13 +3,12 @@ package main;
 import java.util.Scanner;
 
 public class HighLow {
-    static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
         guessingGame();
     }
 
     public static void guessingGame() {
+        Scanner scanner = new Scanner(System.in);
         int randomNum = ((int) (Math.random() * 100)) + 1;
         boolean correctGuess = false;
         int userGuessesLeft = 10;
@@ -47,5 +46,6 @@ public class HighLow {
         } else {
             System.out.println("Goodbye");
         }
+        scanner.close();
     }
 }
