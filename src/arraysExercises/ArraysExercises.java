@@ -1,4 +1,4 @@
-package ArraysExercises;
+package arraysExercises;
 
 import main.Person;
 

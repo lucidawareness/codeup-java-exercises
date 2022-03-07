@@ -1,4 +1,4 @@
-package ServerNameGenerator;
+package serverNameGenerator;
 
 public class ServerNameGenerator {
     static String [] adjectives = {"Charming", "Cruel", "Fantastic", "Gentle", "Huge", "Perfect", "Rough", "Sharp"};
