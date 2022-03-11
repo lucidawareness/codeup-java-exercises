@@ -47,18 +47,15 @@ public class Student {
         }
     }
 
-    public double getAttendancePercentage() {
-        int absentSum = 0;
-        int presentSum = 0;
+    public Double getAttendancePercentage() {
+        double presentSum = 0;
         for (String day : attendance.keySet()) {
             String attendanceStatus = attendance.get(day);
-            if (attendanceStatus.equalsIgnoreCase("a")) {
-                absentSum += 1;
-            } else {
+            if (attendanceStatus.equalsIgnoreCase("p")) {
                 presentSum += 1;
             }
         }
-        return 0;
+        return (presentSum / attendance.size()) * 100;
     }
 
     public void recordAttendance(String date, String attendance) {
@@ -69,6 +66,17 @@ public class Student {
         }
     }
 
+    public ArrayList<String> getDaysAbsent() {
+        ArrayList<String> daysAbsent = new ArrayList<>();
+        for (String day : attendance.keySet()) {
+            String attendanceStatus = attendance.get(day);
+            if (attendanceStatus.equalsIgnoreCase("a")) {
+                daysAbsent.add(day);
+            }
+        }
+        return daysAbsent;
+    }
+
     public static void main(String[] args) {
         Student student1 = new Student("John");
         student1.addGrade(90);
@@ -77,6 +85,8 @@ public class Student {
 
         student1.recordAttendance("2020-10-02", "P");
         student1.recordAttendance("2020-10-03", "A");
+        System.out.println(student1.getDaysAbsent());
+        System.out.println(student1.getAttendancePercentage());
         student1.getAttendance();
     }
 }

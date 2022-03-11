@@ -10,18 +10,27 @@ public class GradesApplication {
         student1.addGrade(90);
         student1.addGrade(80);
         student1.addGrade(80);
+        student1.recordAttendance("2020-10-02", "P");
+        student1.recordAttendance("2020-10-03", "A");
         Student student2 = new Student("Elisa");
         student2.addGrade(70);
         student2.addGrade(100);
         student2.addGrade(95);
+        student2.recordAttendance("2020-10-02", "A");
+        student2.recordAttendance("2020-10-03", "A");
         Student student3 = new Student("Mike");
         student3.addGrade(80);
         student3.addGrade(90);
         student3.addGrade(90);
+        student3.recordAttendance("2020-10-02", "P");
+        student3.recordAttendance("2020-10-03", "P");
         Student student4 = new Student("Lilly");
         student4.addGrade(80);
         student4.addGrade(90);
         student4.addGrade(100);
+        student4.recordAttendance("2020-10-02", "P");
+        student4.recordAttendance("2020-10-03", "A");
+
         createStudentHashMap(student1, student2, student3, student4);
     }
 
@@ -31,9 +40,7 @@ public class GradesApplication {
         students.put("elisaplaysalot", student2);
         students.put("mikeymikemike", student3);
         students.put("Lillylearnsalot", student4);
-        System.out.println(students);
 
-        System.out.println(student1.setName("Irvin"));
         gradeApp(students);
     }
 
@@ -52,7 +59,7 @@ public class GradesApplication {
     public static void getStudentInfoByGitName(HashMap<String, Student> students, String userInput) {
         if (students.containsKey(userInput)) {
             Student currentChoice = students.get(userInput);
-            System.out.printf("\nStudent Name: %s - GitHub Username: %s\nGrades: %s Current Average: %.2f%%\n\n", currentChoice.getName(), userInput, currentChoice.getGrades().toString(), currentChoice.getGradeAverage());
+            System.out.printf("\nStudent Name: %s - GitHub Username: %s\nGrades: %s Current Average: %.2f%%\nCurrent Attendance Percentage %.2f%%\n\n", currentChoice.getName(), userInput, currentChoice.getGrades().toString(), currentChoice.getGradeAverage(), currentChoice.getAttendancePercentage());
             askUserProceed(students);
         } else if (userInput.equalsIgnoreCase("all")) {
             getAllGrades(students);
@@ -74,7 +81,7 @@ public class GradesApplication {
             for (Integer grade : currentChoice.getGrades()) {
                 System.out.printf("%d, ", grade);
             }
-            System.out.printf("Avg: %.2f", currentChoice.getGradeAverage());
+            System.out.printf("Avg: %.2f Attendance Percentage %.2f%%", currentChoice.getGradeAverage(), currentChoice.getAttendancePercentage());
             System.out.println();
         }
         askUserProceed(students);
@@ -96,10 +103,10 @@ public class GradesApplication {
     }
 
     private static void getCsvFormat(HashMap<String, Student> students) {
-        System.out.println("name,github_username,average");
+        System.out.println("name,github_username,average,attendance_average");
         for (String gitHubName : students.keySet()) {
             Student currentStudent = students.get(gitHubName);
-            System.out.printf("%s,%s,%.1f\n",currentStudent.getName(), gitHubName, currentStudent.getGradeAverage());
+            System.out.printf("%s,%s,%.1f%%,%.2f%%\n",currentStudent.getName(), gitHubName, currentStudent.getGradeAverage(), currentStudent.getAttendancePercentage());
         }
         askUserProceed(students);
     }
