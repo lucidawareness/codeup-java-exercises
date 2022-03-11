@@ -5,7 +5,7 @@ public class ServerNameGenerator {
     static String [] nouns = {"Tropicana", "Paris", "New York", "Maya", "Jupiter", "Google", "Oreo", "Ferrari"};
 
     static String random(String[] arr){
-        return arr[(int) Math.floor(Math.random() *10)];
+        return arr[(int) Math.floor(Math.random() * 8)];
     }
 
     public static void main(String[] args) {
