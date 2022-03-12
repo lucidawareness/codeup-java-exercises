@@ -7,7 +7,7 @@ public class Input {
 
     public static String getString(String prompt) {
         System.out.println(prompt);
-        return scanner.nextLine();
+        return scanner.next();
     }
 
     public static boolean yesNo(String prompt) {
@@ -28,7 +28,7 @@ public class Input {
     }
 
     public static int getInt(String prompt) {
-        System.out.print(prompt);
+        System.out.println(prompt);
         return scanner.nextInt();
     }
 
