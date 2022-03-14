@@ -47,47 +47,12 @@ public class GroceriesApp {
 
     private static void userChooseCategoryToAddTo(ArrayList<GroceryCategory> categories) {
         printCategories(categories);
-        String userCategoryChoice = Input.getString("Choose a category to add to");
-        if (userCategoryChoice.equalsIgnoreCase("1")) {
-            GroceryCategory category = categories.get(0);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("2")) {
-            GroceryCategory category = categories.get(1);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("3")) {
-            GroceryCategory category = categories.get(2);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("4")) {
-            GroceryCategory category = categories.get(3);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("5")) {
-            GroceryCategory category = categories.get(4);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("6")) {
-            GroceryCategory category = categories.get(5);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("7")) {
-            GroceryCategory category = categories.get(6);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("8")) {
-            GroceryCategory category = categories.get(7);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("9")) {
-            GroceryCategory category = categories.get(8);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("10")) {
-            GroceryCategory category = categories.get(9);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("11")) {
-            GroceryCategory category = categories.get(10);
-            addNewItem(category, categories);
-        } else if (userCategoryChoice.equalsIgnoreCase("12")) {
-            GroceryCategory category = categories.get(11);
-            addNewItem(category, categories);
-        } else {
-            System.out.println("Not a proper input");
-            askUserProceed(categories);
+        int userCategoryChoice = Input.getInt(1, 12, "Choose a category to add to \n");
+        if (userCategoryChoice > 12 || userCategoryChoice < 0) {
+            System.out.println("Choose an option between 1 and 12 from above");
         }
+        GroceryCategory category = categories.get(userCategoryChoice - 1);
+        addNewItem(category, categories);
     }
 
     private static void addNewItem(GroceryCategory category, ArrayList<GroceryCategory> categories) {
@@ -100,57 +65,22 @@ public class GroceriesApp {
     }
 
     private static void userChooseListDisplay(ArrayList<GroceryCategory> categories) {
-        System.out.println("How would you like your list?");
-        System.out.println("Enter: \"1\" to show all, \"2\" Beverages, \"3\" Bakery, \"4\" Canned/Jared, \"5\" Dairy\n" +
-                "\"6\" Dry/Baking Goods, \"7\" Frozen Foods, \"8\" Meat, \"9\" Produce\n" +
-                "\"10\" Cleaners, \"11\" Paper Goods, \"12\" Personal Care, \"13\" Other\n");
-        String userListDisplayChoice = Input.getString("Choose a category to add to.");
+        listDisplayOptions(categories);
+
+        int userListDisplayChoice = Input.getInt(1, 13, "Choose how to display your list\n");
         System.out.println("Here is you list!\n");
-        if (userListDisplayChoice.equalsIgnoreCase("1")) {
+        if (userListDisplayChoice > 13 || userListDisplayChoice <= 0) {
+            System.out.println("Please input a number from the options above");
+            userChooseListDisplay(categories);
+        } else if (userListDisplayChoice == 1) {
             for (GroceryCategory category : categories) {
                 System.out.printf("%s:\n", category.getName());
                 category.getItems();
             }
             askUserProceed(categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("2")) {
-            GroceryCategory category = categories.get(0);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("3")) {
-            GroceryCategory category = categories.get(1);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("4")) {
-            GroceryCategory category = categories.get(2);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("5")) {
-            GroceryCategory category = categories.get(3);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("6")) {
-            GroceryCategory category = categories.get(4);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("7")) {
-            GroceryCategory category = categories.get(5);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("8")) {
-            GroceryCategory category = categories.get(6);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("9")) {
-            GroceryCategory category = categories.get(7);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("10")) {
-            GroceryCategory category = categories.get(8);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("11")) {
-            GroceryCategory category = categories.get(9);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("12")) {
-            GroceryCategory category = categories.get(10);
-            printListDisplay(category, categories);
-        } else if (userListDisplayChoice.equalsIgnoreCase("13")) {
-            GroceryCategory category = categories.get(11);
-            printListDisplay(category, categories);
         } else {
-            System.out.println("Not a proper input");
-            askUserProceed(categories);
+            GroceryCategory category = categories.get(userListDisplayChoice - 2);
+            printListDisplay(category, categories);
         }
     }
 
@@ -162,6 +92,16 @@ public class GroceriesApp {
 
     public static void printCategories(ArrayList<GroceryCategory> categories) {
         int count = 0;
+        for (GroceryCategory category : categories) {
+            count += 1;
+            System.out.println(count + "- " + category.getName());
+        }
+    }
+
+    public static void listDisplayOptions(ArrayList<GroceryCategory> categories) {
+        int count = 1;
+        System.out.println("How would you like your list?");
+        System.out.println("1- Show all");
         for (GroceryCategory category : categories) {
             count += 1;
             System.out.println(count + "- " + category.getName());

@@ -17,13 +17,17 @@ public class Input {
     }
 
     public static int getInt(int min, int max, String prompt) {
-        System.out.println(prompt);
-        int userInput = scanner.nextInt();
-        if (userInput >= min && userInput <= max) {
-            return userInput;
-        } else {
-            System.out.printf("Please enter a number between %d and %d\n", min, max);
-            return getInt(min, max, prompt);
+        while (true) {
+            System.out.printf("%s", prompt);
+            if (scanner.hasNextInt()) {
+                int result = scanner.nextInt();
+                scanner.nextLine();
+                if (result >= min && result <= max) {
+                    return result;
+                }
+            }
+            // if you get here, you did not type an int
+            scanner.nextLine();
         }
     }
 
