@@ -42,7 +42,7 @@ public class Input {
         if (userInput >= min && userInput <= max) {
             return userInput;
         } else {
-            System.out.printf("Please enter a number between %d and %d\n", min, max);
+            System.out.printf("Please enter a number between %f and %f\n", min, max);
             return getDouble(min, max, prompt);
         }
     }
